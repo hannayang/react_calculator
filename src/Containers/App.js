@@ -49,7 +49,13 @@ class App extends Component {
   }
 
   operatorHandler(event) {
-    if(this.state.inputs.indexOf('=') === -1) {
+    if(this.state.incompleteInput === '' && this.state.inputs.length === 0) {
+    } else if(this.state.incompleteInput === '' && isOperator.test(this.state.inputs[this.state.inputs.length - 1]) === true) {
+      this.setState({
+        inputs: this.state.inputs.slice(0, this.state.inputs.length - 1).concat([event.target.value]), 
+        incompleteInput: '', 
+      })
+    } else if(this.state.inputs.indexOf('=') === -1) {
       this.setState({
         inputs: this.state.inputs.concat([this.state.incompleteInput, event.target.value]), 
         incompleteInput: '', 
