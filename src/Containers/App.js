@@ -133,7 +133,7 @@ class App extends Component {
   getExtendedState(state) { 
     return {
       formularDisplay: state.inputs.join(''),
-      inputDisplay: state.warning === '' ? state. incompleteInput : state.warning, 
+      inputDisplay: state.warning === '' ? state.incompleteInput : state.warning, 
     };
   }
 
